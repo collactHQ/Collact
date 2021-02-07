@@ -101,10 +101,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xfb;
+        pchMessageStart[0] = 0x44;
         pchMessageStart[1] = 0xc0;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xdb;
+        pchMessageStart[2] = 0x6a;
+        pchMessageStart[3] = 0x20;
         nDefaultPort = 9333;
         nPruneAfterHeight = 100000;
         m_assumed_blockchain_size = 22;
@@ -126,8 +126,8 @@ public:
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,28);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x41, 0xB2, 0x1E};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x41, 0xAD, 0xE4};
+        base58Prefixes[EXT_PUBLIC_KEY] = {0xaa, 0x41, 0xB2, 0x1E};
+        base58Prefixes[EXT_SECRET_KEY] = {0xaa, 0x41, 0xAD, 0xE4};
 
         bech32_hrp = "ltc";
 
@@ -195,16 +195,16 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0xf19dfbdc0e6c399ef45d315d89fc3e972dd8da74503252bacaf664f64d86e6f6"); //1174621
 
-        pchMessageStart[0] = 0xfd;
-        pchMessageStart[1] = 0xd2;
-        pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xf1;
+        pchMessageStart[0] = 0xc8;
+        pchMessageStart[1] = 0x5b;
+        pchMessageStart[2] = 0xb3;
+        pchMessageStart[3] = 0x20;
         nDefaultPort = 19335;
         nPruneAfterHeight = 1000;
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1606755600, 293345, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
         assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
@@ -213,15 +213,14 @@ public:
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
         vSeeds.emplace_back("testnet-seed.litecointools.com");
-        vSeeds.emplace_back("seed-b.litecoin.loshan.co.uk");
-        vSeeds.emplace_back("dnsseed-testnet.thrasher.io");
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,29);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,29);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0xaa, 0x35, 0x87, 0xCF};
+        base58Prefixes[EXT_SECRET_KEY] = {0xaa, 0x35, 0x83, 0x94};
 
         bech32_hrp = "tltc";
 
@@ -233,15 +232,15 @@ public:
 
         checkpointData = {
             {
-                {2056, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
+                {0, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
             }
         };
 
         chainTxData = ChainTxData{
             // Data from rpc: getchaintxstats 4096 e79561972208ba3a02c308482176b33f3ec841d4213ea7bbaa3f22b7c8a16f32
-            /* nTime    */ 1565582448,
-            /* nTxCount */ 2848910,
-            /* dTxRate  */ 0.02265200874042768
+            /* nTime    */ 1606755600,
+            /* nTxCount */ 0,
+            /* dTxRate  */ 0.0
         };
 
         /* enable fallback fee on testnet */
