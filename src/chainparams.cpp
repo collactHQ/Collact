@@ -165,9 +165,9 @@ public:
         consensus.nSubsidyHalvingInterval = 840000;
         consensus.BIP16Height = 0; // always enforce P2SH BIP16 on testnet
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573");
-        consensus.BIP65Height = 0; // 8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573
-        consensus.BIP66Height = 0; // 8075c771ed8b495ffd943980a95f702ab34fce3c8c54e379548bda33cc8c0573
+        consensus.BIP34Hash = uint256S("292cec58b3973909e254595b6687512dd1558c8fde73cae9f78334d4362ba82d");
+        consensus.BIP65Height = 0; // 292cec58b3973909e254595b6687512dd1558c8fde73cae9f78334d4362ba82d
+        consensus.BIP66Height = 0; // 292cec58b3973909e254595b6687512dd1558c8fde73cae9f78334d4362ba82d
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
         consensus.nPowTargetSpacing = 2.5 * 60;
@@ -204,10 +204,10 @@ public:
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlock(1606755600, 293345, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1606755600, 606768, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x292cec58b3973909e254595b6687512dd1558c8fde73cae9f78334d4362ba82d"));
+        assert(genesis.hashMerkleRoot == uint256S("0x429a2a05fd94438c5ab32b83e0085718980875389aae96c73e65700607697179"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -232,7 +232,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
+                {0, uint256S("292cec58b3973909e254595b6687512dd1558c8fde73cae9f78334d4362ba82d")},
             }
         };
 
